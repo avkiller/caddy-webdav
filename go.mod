@@ -3,9 +3,9 @@ module github.com/mholt/caddy-webdav
 go 1.21
 
 require (
-	github.com/caddyserver/caddy/v2 v2.5.2
-	go.uber.org/zap v1.21.0
-	golang.org/x/net v0.29.0
+	github.com/caddyserver/caddy/v2 v2.8.4
+	go.uber.org/zap v1.27.0
+	golang.org/x/net v0.30.0
 )
 
 require (
