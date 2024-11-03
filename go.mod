@@ -1,5 +1,4 @@
-module github.com/mholt/caddy-webdav
-
+module github.com/avkiller/caddy-webdav
 go 1.21
 
 require (
