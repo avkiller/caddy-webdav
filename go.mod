@@ -1,8 +1,6 @@
 module github.com/avkiller/caddy-webdav
 
-go 1.23.0
-
-toolchain go1.23.0
+go 1.23
 
 require (
 	github.com/caddyserver/caddy/v2 v2.9.1
