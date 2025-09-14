@@ -1,11 +1,9 @@
-WebDAV for Caddy
-================
+# WebDAV for Caddy
 
 This package implements a simple WebDAV handler module for Caddy.
 
 > [!NOTE]
 > This is not an official repository of the [Caddy Web Server](https://github.com/caddyserver) organization.
-
 
 ## Syntax
 
@@ -54,7 +52,7 @@ If you want to serve WebDAV and directory listing under same path (similar behav
 Example with authenticated WebDAV and directory listing under the same path:
 
 ```
-@get method GET
+@get method GET HEAD
 
 route {
     basicauth {
@@ -68,7 +66,7 @@ route {
 Or, if you want to create a public listing, but keep WebDAV behind authentication:
 
 ```
-@notget not method GET
+@notget not method GET HEAD
 
 route @notget {
     basicauth {
@@ -78,6 +76,12 @@ route @notget {
 }
 file_server browse
 ```
+
+## Permissions
+
+To use the WebDAV PUT command, the caddy process needs to be able to write to the storage directory. On Linux, this ordinarily means that the directory needs to be owned by the `caddy` user, or it must be world-writable (the `w` permission needs to be set for other).
+
+Additionally, if running caddy via a systemd, it may be necessary to add the storage directory to the `ReadWriteDirectories` option of the service. For details, see [this issue](https://github.com/mholt/caddy-webdav/issues/21#issue-811534672).
 
 ## Credit
 
